@@ -25,7 +25,7 @@ a cada etapa do projeto desenvolvida, eram feitos commit, murge e atualizações
   npm install react-hook-form
 
 
-### Colabroadores
+### Colaboradores
 
 @Alcemaia (Alcenizia Maia)     RID: 90653
 @Giva04 (Givanildo Gomes)      RID: 89842
