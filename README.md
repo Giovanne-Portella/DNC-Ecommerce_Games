@@ -10,6 +10,20 @@ a cada etapa do projeto desenvolvida, eram feitos commit, murge e atualizações
   React Router, 
   
   nodejs e sass. 
+  
+
+  O @Rodrigo criou o projeto na branch master, fez a primeira estruturação com os componentes, mock, pages e rotas.
+  
+Em seguida criou a branch desenvolvimento e passou o link do projeto para os demais fazerem o Clone através do github.
+
+O @Joserrbv adicionou a proteção de branch chamada "etapa". 
+
+  No total foram criadas 7 branchs: master, desenvolvimento, etapa_Login, etapa_Home, etapa_detalhe_do_produto, etapa_meu_carrinho e etapa_pay. 
+onde as etapas: etapa_meu_carrinho e etapa_pay foram criadas em seguimento da etapa_detalhe_do_produto. Pois o grupo escolheu fazer utilizando modais um para a
+etapa_meu_carrinho e outro para a etapa_pay. Mas utilizando os arquivos DetalhedoProduto.jsx e seu index.scss.
+
+Ao final do projeto, foi feito o murge de todas as branchs para a branch master. 
+
 
 ## Como Iniciar o projeto
 
