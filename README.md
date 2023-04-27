@@ -1,6 +1,6 @@
 # Ecommerce_DNC_games
   
-  Atividade avaliativa proposta pela escola DNC com o intuito de replicacar um ECOMMERCE de produtos gamers.
+  Atividade avaliativa proposta pela escola DNC com o intuito de replicar um ECOMMERCE de produtos gamers.
   
   Iniciamos o projeto no TRELLO organizando e distribuindo as etapas por membro do grupo, por duplas e por grupo.
 a cada etapa do projeto desenvolvida, eram feitos commit, murge e atualizações no TRELLO. 
