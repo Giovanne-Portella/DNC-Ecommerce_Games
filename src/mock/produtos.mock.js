@@ -82,7 +82,7 @@
     nome: 'Headset Gamer HyperX Cloud III',
     preco: 'R$ 499,00',
     precoNum: 499,
-    imagem: '/xboxX.svg',
+    imagem: '/hyperx-headset.svg',
     descricao:
       'Som surround 7.1 virtual com drivers de 53mm, microfone destacável com cancelamento de ruído e almofadas de memory foam. Compatível com PC, PS5, Xbox e Switch.',
     tipo: 'acessorio',
@@ -95,7 +95,7 @@
     nome: 'Controle DualSense — PlayStation 5',
     preco: 'R$ 449,00',
     precoNum: 449,
-    imagem: '/xboxS.svg',
+    imagem: '/dualsense.svg',
     descricao:
       'O DualSense traz gatilhos adaptativos e feedback háptico que transformam cada jogo em uma experiência imersiva. Bateria integrada e design futurista.',
     tipo: 'acessorio',

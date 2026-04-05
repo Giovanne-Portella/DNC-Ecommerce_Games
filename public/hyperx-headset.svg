@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="400" height="320">
+  <!-- Background -->
+  <rect width="400" height="320" fill="#1a1a1a"/>
+
+  <!-- Headband arc -->
+  <path d="M 110 160 Q 200 40 290 160" fill="none" stroke="#cc1111" stroke-width="18" stroke-linecap="round"/>
+  <!-- Headband shine -->
+  <path d="M 118 155 Q 200 52 282 155" fill="none" stroke="#ff4444" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Left ear cup body -->
+  <ellipse cx="100" cy="175" rx="42" ry="52" fill="#222"/>
+  <ellipse cx="100" cy="175" rx="42" ry="52" fill="none" stroke="#cc1111" stroke-width="3"/>
+  <!-- Left ear cup inner -->
+  <ellipse cx="100" cy="175" rx="28" ry="36" fill="#1a1a1a"/>
+  <ellipse cx="100" cy="175" rx="20" ry="26" fill="#111"/>
+  <!-- Left cushion -->
+  <ellipse cx="100" cy="175" rx="38" ry="48" fill="none" stroke="#333" stroke-width="5"/>
+  <!-- Left HyperX logo -->
+  <text x="88" y="180" font-family="Arial" font-weight="bold" font-size="13" fill="#cc1111">HX</text>
+
+  <!-- Right ear cup body -->
+  <ellipse cx="300" cy="175" rx="42" ry="52" fill="#222"/>
+  <ellipse cx="300" cy="175" rx="42" ry="52" fill="none" stroke="#cc1111" stroke-width="3"/>
+  <!-- Right ear cup inner -->
+  <ellipse cx="300" cy="175" rx="28" ry="36" fill="#1a1a1a"/>
+  <ellipse cx="300" cy="175" rx="20" ry="26" fill="#111"/>
+  <!-- Right cushion -->
+  <ellipse cx="300" cy="175" rx="38" ry="48" fill="none" stroke="#333" stroke-width="5"/>
+
+  <!-- Microphone arm (from left cup) -->
+  <line x1="68" y1="200" x2="30" y2="245" stroke="#444" stroke-width="6" stroke-linecap="round"/>
+  <line x1="30" y1="245" x2="48" y2="260" stroke="#444" stroke-width="6" stroke-linecap="round"/>
+  <!-- Mic capsule -->
+  <ellipse cx="52" cy="263" rx="10" ry="6" fill="#cc1111"/>
+  <ellipse cx="52" cy="263" rx="7" ry="4" fill="#ff3333"/>
+
+  <!-- Cable from left cup -->
+  <path d="M 62 210 Q 40 260 35 290" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Connector jack -->
+  <rect x="30" y="288" width="10" height="20" rx="3" fill="#555"/>
+  <rect x="32" y="290" width="6" height="4" fill="#777"/>
+
+  <!-- Brand text -->
+  <text x="200" y="290" font-family="Arial" font-weight="900" font-size="22" fill="#cc1111" text-anchor="middle" letter-spacing="3">HyperX</text>
+  <text x="200" y="308" font-family="Arial" font-size="11" fill="#888" text-anchor="middle" letter-spacing="2">CLOUD III</text>
+</svg>

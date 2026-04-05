@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#1a1a1a"/>
+
+  <!-- Controller main body - white/light gray -->
+  <!-- Bottom grips -->
+  <ellipse cx="130" cy="218" rx="52" ry="38" fill="#e8e8ec"/>
+  <ellipse cx="270" cy="218" rx="52" ry="38" fill="#e8e8ec"/>
+
+  <!-- Main body -->
+  <path d="M 80 130 Q 78 90 120 75 L 280 75 Q 322 90 320 130 L 316 185 Q 300 230 270 240 L 130 240 Q 100 230 84 185 Z" fill="#e8e8ec"/>
+
+  <!-- Top shoulder area -->
+  <path d="M 118 75 Q 130 55 160 50 L 240 50 Q 270 55 282 75 Z" fill="#d0d0d8"/>
+
+  <!-- Light bar (top center) -->
+  <rect x="170" y="52" width="60" height="6" rx="3" fill="#4488ff" opacity="0.9"/>
+  <rect x="173" y="53" width="54" height="3" rx="2" fill="#88aaff" opacity="0.7"/>
+
+  <!-- Touchpad center -->
+  <rect x="158" y="118" width="84" height="54" rx="12" fill="#d0d0d8"/>
+  <rect x="163" y="123" width="74" height="44" rx="10" fill="#c8c8d0"/>
+  <!-- Touchpad dividing line -->
+  <line x1="200" y1="123" x2="200" y2="167" stroke="#b0b0b8" stroke-width="1.5"/>
+  <!-- PS button -->
+  <circle cx="200" cy="110" r="10" fill="#d0d0d8"/>
+  <text x="200" y="115" font-family="Arial" font-weight="bold" font-size="11" fill="#888" text-anchor="middle">PS</text>
+
+  <!-- Left analog stick -->
+  <circle cx="145" cy="178" r="22" fill="#bbbbc8"/>
+  <circle cx="145" cy="178" r="16" fill="#aaaabc"/>
+  <circle cx="145" cy="178" r="8" fill="#9999ac"/>
+
+  <!-- Right analog stick -->
+  <circle cx="235" cy="195" r="22" fill="#bbbbc8"/>
+  <circle cx="235" cy="195" r="16" fill="#aaaabc"/>
+  <circle cx="235" cy="195" r="8" fill="#9999ac"/>
+
+  <!-- D-pad -->
+  <rect x="112" y="193" width="14" height="40" rx="3" fill="#9999ac"/>
+  <rect x="100" y="205" width="40" height="14" rx="3" fill="#9999ac"/>
+
+  <!-- Face buttons (right side) -->
+  <!-- Triangle -->
+  <circle cx="268" cy="155" r="10" fill="#1a1a1a" opacity="0.08"/>
+  <text x="268" y="159" font-family="Arial" font-size="13" fill="#3ab87a" text-anchor="middle">▲</text>
+  <!-- Cross -->
+  <circle cx="268" cy="178" r="10" fill="#1a1a1a" opacity="0.08"/>
+  <text x="268" y="183" font-family="Arial" font-size="14" fill="#5599ee" text-anchor="middle" font-weight="bold">✕</text>
+  <!-- Square -->
+  <circle cx="248" cy="167" r="10" fill="#1a1a1a" opacity="0.08"/>
+  <text x="248" y="171" font-family="Arial" font-size="10" fill="#e060a0" text-anchor="middle">■</text>
+  <!-- Circle -->
+  <circle cx="288" cy="167" r="10" fill="#1a1a1a" opacity="0.08"/>
+  <circle cx="288" cy="167" r="5" fill="none" stroke="#dd4444" stroke-width="2"/>
+
+  <!-- L1/R1 bumpers -->
+  <path d="M 90 100 Q 100 80 135 78 L 185 78 Q 175 92 155 96 Q 120 100 90 100 Z" fill="#d0d0d8"/>
+  <path d="M 310 100 Q 300 80 265 78 L 215 78 Q 225 92 245 96 Q 280 100 310 100 Z" fill="#d0d0d8"/>
+
+  <!-- L2/R2 triggers -->
+  <path d="M 90 98 Q 82 82 88 68 Q 96 58 112 62 Q 128 68 128 82 L 122 98 Z" fill="#c8c8d0"/>
+  <path d="M 310 98 Q 318 82 312 68 Q 304 58 288 62 Q 272 68 272 82 L 278 98 Z" fill="#c8c8d0"/>
+
+  <!-- Options/Create buttons -->
+  <circle cx="225" cy="120" r="6" fill="#b0b0bc"/>
+  <text x="225" y="124" font-family="Arial" font-size="8" fill="#777" text-anchor="middle">≡</text>
+  <circle cx="174" cy="120" r="6" fill="#b0b0bc"/>
+  <text x="174" y="124" font-family="Arial" font-size="10" fill="#777" text-anchor="middle">⬡</text>
+
+  <!-- Brand text -->
+  <text x="200" y="270" font-family="Arial" font-weight="900" font-size="18" fill="#ccccdd" text-anchor="middle" letter-spacing="3">DualSense</text>
+  <text x="200" y="287" font-family="Arial" font-size="10" fill="#888" text-anchor="middle" letter-spacing="2">PlayStation 5</text>
+</svg>
