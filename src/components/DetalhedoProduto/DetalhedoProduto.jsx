@@ -1,215 +1,81 @@
-import { Link } from "react-router-dom";
-import React from "react";
-import "./index.scss";
-import carrinhoDir from "../../assets/carrinhoDir.svg";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import './index.scss';
+import carrinhoDir from '../../assets/carrinhoDir.svg';
+import CarrinhoModal from '../CarrinhoModal/CarrinhoModal';
+import PayModal from '../PayModal/PayModal';
 
 const DetalhedoProduto = ({ dados }) => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (dados) => console.log(dados);
+  const [showCart, setShowCart] = useState(false);
+  const [showPay, setShowPay] = useState(false);
 
-  console.log(watch("dados")); // watch input value by passing the name of it
-  //   console.log(dados);
+  if (!dados) {
+    return <p className="detalhe-produto__not-found">Produto não encontrado.</p>;
+  }
+
+  const coresValidas = dados.cor.filter(Boolean);
+
   return (
-    <div className="Detalhedoproduto">
-      <div className="Detalhedoproduto_esquerdo">
-        <div className="Detalhedoproduto__card">
-          <img id="imagemTopo" src={dados.imagem} alt="" />
+    <div className="detalhe-produto">
+      <div className="detalhe-produto__esquerdo">
+        <div className="detalhe-produto__card">
+          <img className="detalhe-produto__imagem" src={dados.imagem} alt={dados.nome} />
           <p>{dados.nome}</p>
         </div>
-        <div
-          className="Detalhedoproduto__descricao, border-bottom"
-          style={{ paddingBottom: "10px" }}
-        >
+        <div className="detalhe-produto__descricao border-bottom">
           <h2>Descrição</h2>
-
-          <label>{dados.descricao}</label>
+          <p>{dados.descricao}</p>
         </div>
       </div>
-      <div className="Detalhedoproduto_direito">
-        <div className="Detalhedoproduto_direito_nome">
-          <h2 className="border-bottom">{dados.nome}</h2>
-        </div>
-        <div className="preco">
+
+      <div className="detalhe-produto__direito">
+        <h2 className="border-bottom">{dados.nome}</h2>
+        <div className="detalhe-produto__preco">
           <p>{dados.preco}</p>
         </div>
-        <div className="Detalhedoproduto_direito_cor">
-          Cor:{" "}
-          {dados.cor.length === 1
-            ? dados.cor.map((cor, index) => <span key={index}>{cor}</span>)
-            : dados.cor.map((cor, index) =>
-                index + 1 === dados.cor.length ? (
-                  <span key={index}>{cor}</span>
-                ) : (
-                  <span key={index}>{cor}, </span>
-                )
-              )}
+        <div className="detalhe-produto__cor">
+          Cor: {coresValidas.length > 0 ? coresValidas.join(', ') : 'Padrão'}
         </div>
-        <div className="Detalhedoproduto__cubocor">
-          {dados.cor.map((cor) => (
-            <div
-              style={{
-                width: "40px",
-                height: "35px",
-                borderRadius: "10px",
-                backgroundColor: cor,
-                border: "none ",
-              }}
-            >
-              {" "}
-            </div>
-          ))}
-        </div>
-
+        {coresValidas.length > 0 && (
+          <div className="detalhe-produto__cubocor">
+            {coresValidas.map((cor, index) => (
+              <div
+                key={index}
+                className="detalhe-produto__swatch"
+                style={{ backgroundColor: cor }}
+              />
+            ))}
+          </div>
+        )}
         <button
-          id="Detalhedoproduto_direito_button"
+          className="detalhe-produto__btn-carrinho"
           type="button"
-          onClick={() => {
-            console.log("click");
-            {
-              {
-                modal.style.display = "block";
-              }
-            }
-          }}
+          onClick={() => setShowCart(true)}
         >
-          <img id="carrinho" src={carrinhoDir} alt="" srcset="" />
+          <img src={carrinhoDir} alt="" className="detalhe-produto__btn-icon" />
           Adicionar ao Carrinho
         </button>
       </div>
-      {/* modal 1 */}
 
-      <div id="modal">
-        <div id="modal_content">
-          <div className="left">
-            <img src={dados.imagem} alt="" style={{ marginTop: "10%" }} />
-          </div>
-          <div className="right">
-            <h2 className="right_titulo"> Meu Carrinho </h2>
+      {showCart && (
+        <CarrinhoModal
+          dados={dados}
+          onClose={() => setShowCart(false)}
+          onFinalize={() => {
+            setShowCart(false);
+            setShowPay(true);
+          }}
+        />
+      )}
 
-            <h1 id="border-bottom">{dados.nome}</h1>
-            <p
-              style={{
-                fontSize: "32px",
-                marginBottom: "27px",
-                fontWeight: "900",
-                marginTop: "27px",
-                fontFamily: "Inter",
-              }}
-            >
-              {dados.preco}
-            </p>
-
-            <h5>cor: {dados.cor} </h5>
-
-            <div className="Detalhedoproduto__cubocor">
-              {dados.cor.map((cor) => (
-                <div
-                  style={{
-                    width: "40px",
-                    height: "35px",
-                    borderRadius: "10px",
-                    backgroundColor: cor,
-                    border: "none ",
-                  }}
-                >
-                  {" "}
-                </div>
-              ))}
-            </div>
-            <div className="botoes">
-              <button className="botoes_one">
-                <Link to={`/home/`}> Continuar Comprando</Link>
-              </button>
-
-              <button
-                className="botoes_two"
-                onClick={() => {
-                  console.log("click");
-                  {
-                    {
-                      modalPay.style.display = "flex";
-                    }
-                  }
-                }}
-              >
-                Finalizar Compra
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*     termina 1     */}
-
-      {/* inicia modal 2 */}
-
-      <div className="modalPay" id="modalPay">
-        <div className="modalPay__content">
-          <form onSubmit={handleSubmit(onSubmit)} className="modalPay__form">
-            <h1 id="finalizarCompar">Finalizar compra:</h1>
-            <label className="modalPay__label">Digite seu nome:</label>
-            <input
-              placeholder="Digite seu nome"
-              {...register("firstName", {
-                required: true,
-                minLength: 3,
-                maxLength: 50,
-              })}
-              className="modalPay__input"
-            />
-
-            <label className="modalPay__label">Digite seu CPF:</label>
-            <input
-              placeholder="Digite seu CPF"
-              type="text"
-              {...register("CPF", {
-                required: true,
-                pattern: /^(\d{3}\.){2}\d{3}\-\d{2}$/,
-              })}
-              className="modalPay__input"
-            />
-
-            <label className="modalPay__label">Endereço:</label>
-            <input
-              placeholder="**********************"
-              {...register("address", {
-                required: true,
-                minLength: 10,
-                maxLength: 50,
-              })}
-              className="modalPay__input"
-            />
-
-            <label className="modalPay__label">Forma de Pagamento:</label>
-            <input
-              placeholder="**********************"
-              {...register("payment", {
-                required: true,
-                minLength: 6,
-                maxLength: 20,
-              })}
-              className="modalPay__input"
-            />
-
-            {errors.exampleRequired && <span>Campo Obrigatório</span>}
-
-            <button className="botoes_one">Confirmar Compra</button>
-          </form>
-        </div>
-      </div> 
-
-
-
-
-
-
+      {showPay && (
+        <PayModal
+          onClose={() => setShowPay(false)}
+          onConfirm={() => {}}
+        />
+      )}
     </div>
   );
 };
 
 export default DetalhedoProduto;
+

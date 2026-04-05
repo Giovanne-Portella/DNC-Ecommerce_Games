@@ -1,98 +1,96 @@
-.no-scroll {
-    overflow: hidden;
+.login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__nav {
+    background-color: #2d2d2d;
+    width: 100%;
+    padding: 16px 20px;
+
+    img {
+      width: 150px;
+    }
   }
 
-.login {
-    height: 100vh;
+  &__form {
+    margin-top: 5rem;
+    text-align: center;
+    width: 100%;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
 
+  &__title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: clamp(20px, 5vw, 30px);
+    margin-bottom: 10px;
+    color: #000000;
+  }
 
-    nav {
-        background-color:  #2D2D2D;
-        width: 100%;
+  &__subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: clamp(16px, 4vw, 22px);
+    color: #000000;
+  }
 
-        img {
-            width: 150px;
-            padding: 20px;
-        }
+  &__input-wrapper {
+    max-width: 524px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  label {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  input {
+    height: 44px;
+    padding: 0 13px;
+    border: 2px solid #2d2d2d;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 15px;
+
+    &:focus {
+      outline: none;
+      border-color: #0c70f2;
     }
+  }
 
-    &__form {
-        margin-top: 5rem;
-        text-align: center;
+  &__error {
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  &__btn {
+    max-width: 524px;
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+    background-color: #0c70f2;
+    border-radius: 6px;
+    padding: 13px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #0a5fd4;
     }
-
-    #titulo_login {
-        font-family: 'Raleway';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 35px;
-        margin-bottom: 10px;
-        color: #000000;
-    }
-
-    h2 {
-        font-family: 'Raleway';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 22px;
-        line-height: 26px;
-
-        color: #000000;
-    }
-
-    label {
-        text-align: left;
-        font-size: 15px;
-        line-height: 15px;
-    }
-
-    &__input-wrapper {
-        width: 524px;
-        display: flex;
-        flex-direction: column;
-        row-gap: 12px;
-        margin-top: 30px;
-    }
-
-    &__input-name {
-        margin-bottom: 15px;
-    }
-
-    input {
-        height: 32px;
-        padding: 18px 13px;
-        border: 2px solid #2D2D2D;
-        border-radius: 5px;
-        width: 100%;
-    }
-
-    .login__error {
-        color: red;
-        font-size: 12px;
-        margin-top: 3px;
-        text-align: left;
-    }
-
-    #buttonEntrar {
-        width: 524px;
-        margin-right: 10px;
-        border: none;
-        background-color:#0C70F2;
-        border-radius: 6px;
-        padding: 13px;        
-        margin-bottom: 10%;
-        font-size: 18px;
-        font-weight: 800;
-        line-height: 21px;
-        cursor: pointer;
-        color: #fff;
-    }
-
-    a {
-        text-decoration: none;
-    }
+  }
 }
+

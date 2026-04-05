@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="250" viewBox="0 0 300 250">
+  <rect width="300" height="250" rx="12" fill="#e8e8e8"/>
+  <rect x="80" y="30" width="140" height="180" rx="8" fill="#4a3000"/>
+  <text x="150" y="130" font-family="Arial" font-size="16" fill="#d4a017" text-anchor="middle" font-weight="bold">UNCHARTED</text>
+  <text x="150" y="210" font-family="Arial" font-size="12" fill="#333" text-anchor="middle">Nathan Drake Collection</text>
+</svg>

@@ -1,20 +1,32 @@
 
-.footer{
-    background-color: #0C70F2;
+.footer {
+  background-color: #0c70f2;
+  display: flex;
+  align-items: center;
+  padding: 20px 35px;
+  gap: 24px;
+  flex-wrap: wrap;
 
-    display: flex;
-    align-items: center;
-    padding: 15px 35px;
-    gap: 35px;
-    justify-content: flex-start;
+  img {
+    width: 90px;
+    flex-shrink: 0;
+  }
 
-    p{
+  p {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.5;
+  }
 
-        color: #fff;
+  @media (max-width: 480px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+    gap: 16px;
 
+    p {
+      font-size: 13px;
     }
-    img{
-        width: 100px;
-    }
+  }
 }
 

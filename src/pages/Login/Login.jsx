@@ -1,104 +1,76 @@
 import React, { useState } from 'react';
-import logo from "../../assets/DncDetalhe.svg";
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/DncDetalhe.svg';
 import './index.scss';
 
-
 const Login = () => {
-
+  const navigate = useNavigate();
   const [cpf, setCpf] = useState('');
   const [password, setPassword] = useState('');
   const [cpfError, setCpfError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [isConfirmed, setIsConfirmed] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let valid = true;
 
-    let cpfValidSubmit = true;
-    let passwordValidSubmit = true;
-
-
-    if (cpf.trim() === '') {
+    if (!cpf.trim()) {
       setCpfError('Por favor, insira seu CPF.');
-      cpfValidSubmit = false;
+      valid = false;
     } else if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
       setCpfError('Por favor, insira um CPF válido.');
-      cpfValidSubmit = false;
+      valid = false;
     } else {
       setCpfError('');
     }
 
-    if (password.trim() === '') {
+    if (!password.trim()) {
       setPasswordError('Por favor, insira sua senha.');
-      passwordValidSubmit = false;
+      valid = false;
     } else {
       setPasswordError('');
     }
 
-    if (cpfValidSubmit && !cpfError) {
-      setCpfError('');
-    }
-
-    if (cpfValidSubmit && passwordValidSubmit) {
-      setIsConfirmed(true);
-      setTimeout(() => {
-        setIsConfirmed(true);
-        console.log('Login realizado com sucesso!');
-        setIsSubmitted(true);
-      }, 2000);
-    } else {
-      setIsSubmitted(true);
+    if (valid) {
+      navigate('/home');
     }
   };
+
   return (
-    <div>
-      <section className="login no-scroll">
-        <nav>
-          <img src={logo} alt="" />
-        </nav>
-        <form className="login__form" onSubmit={handleSubmit}>
-          <h1 id='titulo_login'>Acesse com seu login ou cadastre-se!</h1>
-          <h2>Você pode entrar com o seu CPF</h2>
-          <div className="login__input-wrapper">
-            <label htmlFor="cpf">Digite seu CPF:</label>
-            <input
-              type="text"
-              placeholder="000.000.000-00"
-              id="cpf"
-              className="login__input-name"
-              value={cpf}
-              onChange={(e) => setCpf(e.target.value)}
-            />
-            {cpfError && <p className="login__error">{cpfError}</p>}
-            <label htmlFor="password">Senha:</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="********"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {passwordError && <p className="login__error">{passwordError}</p>}
-          </div>
-          {isSubmitted && isConfirmed ? (
-            <Link to={`/Home/`}>
-              <button id='buttonEntrar'>Entrar</button>
-            </Link>
-          ) : (
-            <button id='buttonEntrar' type="submit">Entrar</button>
-          )}
-
-
-        </form>
-        {isConfirmed && (
-          <p>Login realizado com sucesso!</p>
-        )}
-      </section>
+    <div className="login">
+      <nav className="login__nav">
+        <img src={logo} alt="DNC Games" />
+      </nav>
+      <form className="login__form" onSubmit={handleSubmit}>
+        <h1 className="login__title">Acesse com seu login ou cadastre-se!</h1>
+        <h2 className="login__subtitle">Você pode entrar com o seu CPF</h2>
+        <div className="login__input-wrapper">
+          <label htmlFor="cpf">Digite seu CPF:</label>
+          <input
+            type="text"
+            id="cpf"
+            placeholder="000.000.000-00"
+            value={cpf}
+            onChange={(e) => setCpf(e.target.value)}
+          />
+          {cpfError && <p className="login__error">{cpfError}</p>}
+          <label htmlFor="password">Senha:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="********"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {passwordError && <p className="login__error">{passwordError}</p>}
+        </div>
+        <button className="login__btn" type="submit">
+          Entrar
+        </button>
+      </form>
     </div>
   );
 };
+
 export default Login;
 
