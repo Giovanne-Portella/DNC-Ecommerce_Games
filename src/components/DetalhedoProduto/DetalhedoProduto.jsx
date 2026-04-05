@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.scss';
 import carrinhoDir from '../../assets/carrinhoDir.svg';
-import CarrinhoModal from '../CarrinhoModal/CarrinhoModal';
-import PayModal from '../PayModal/PayModal';
+import { useCart } from '../../context/CartContext';
 
 const DetalhedoProduto = ({ dados }) => {
-  const [showCart, setShowCart] = useState(false);
-  const [showPay, setShowPay] = useState(false);
+  const { addToCart } = useCart();
 
   if (!dados) {
     return <p className="detalhe-produto__not-found">Produto não encontrado.</p>;
@@ -49,30 +47,12 @@ const DetalhedoProduto = ({ dados }) => {
         <button
           className="detalhe-produto__btn-carrinho"
           type="button"
-          onClick={() => setShowCart(true)}
+          onClick={() => addToCart(dados)}
         >
           <img src={carrinhoDir} alt="" className="detalhe-produto__btn-icon" />
           Adicionar ao Carrinho
         </button>
       </div>
-
-      {showCart && (
-        <CarrinhoModal
-          dados={dados}
-          onClose={() => setShowCart(false)}
-          onFinalize={() => {
-            setShowCart(false);
-            setShowPay(true);
-          }}
-        />
-      )}
-
-      {showPay && (
-        <PayModal
-          onClose={() => setShowPay(false)}
-          onConfirm={() => {}}
-        />
-      )}
     </div>
   );
 };

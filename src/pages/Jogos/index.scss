@@ -1,0 +1,105 @@
+.jogos-page {
+  background: #1a1a2e;
+  min-height: 100vh;
+
+  &__hero {
+    background: linear-gradient(-45deg, #0a0a1a, #1a0040, #0c70f2 80%);
+    background-size: 300% 300%;
+    animation: gShift 8s ease infinite;
+    padding: 60px 80px;
+    text-align: center;
+    color: #fff;
+
+    @keyframes gShift {
+      0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+    }
+
+    h1 { font-size: clamp(24px, 4vw, 48px); font-weight: 900; margin: 12px 0 8px; }
+    p  { color: rgba(255,255,255,0.7); }
+    @media (max-width: 480px) { padding: 40px 20px; }
+  }
+
+  &__tag {
+    background: rgba(12,112,242,0.3);
+    border: 1px solid #0c70f2;
+    color: #00ffea;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  &__filters {
+    display: flex;
+    gap: 10px;
+    padding: 24px 80px;
+    flex-wrap: wrap;
+    @media (max-width: 768px) { padding: 20px 24px; }
+    @media (max-width: 480px) { padding: 16px; }
+  }
+
+  &__filter {
+    padding: 8px 18px;
+    border: 1px solid rgba(12,112,242,0.4);
+    border-radius: 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover, &--active {
+      background: #0c70f2;
+      color: #fff;
+      border-color: #0c70f2;
+    }
+  }
+
+  &__section {
+    padding: 8px 80px 48px;
+    @media (max-width: 768px) { padding: 8px 24px 32px; }
+    @media (max-width: 480px) { padding: 8px 16px 24px; }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 560px) { grid-template-columns: 1fr; }
+  }
+
+  &__promo {
+    background: rgba(0,0,0,0.3);
+    padding: 48px 80px;
+    h2 { color: #fff; font-size: 22px; margin-bottom: 24px; }
+    @media (max-width: 768px) { padding: 32px 24px; }
+    @media (max-width: 480px) { padding: 24px 16px; }
+  }
+
+  &__ranking { display: flex; flex-direction: column; gap: 12px; }
+
+  &__rank-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(12,112,242,0.2);
+    border-radius: 10px;
+    padding: 14px 20px;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-weight: 600;
+    max-width: 400px;
+    transition: border-color 0.2s;
+
+    &:hover { border-color: #0c70f2; }
+  }
+
+  &__rank-num {
+    color: #0c70f2;
+    font-size: 20px;
+    font-weight: 900;
+    min-width: 40px;
+  }
+}

@@ -1,11 +1,13 @@
 
 .home {
-  background-color: #2d2d2d;
+  background-color: #1a1a2e;
   width: 100%;
 
-  &__propaganda {
-    width: 100%;
-    display: block;
+  &__search-info {
+    padding: 12px 40px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    @media (max-width: 560px) { padding: 12px 16px; }
   }
 
   &__conteiner {
@@ -27,4 +29,3 @@
     }
   }
 }
-

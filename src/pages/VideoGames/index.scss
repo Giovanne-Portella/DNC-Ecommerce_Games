@@ -1,0 +1,84 @@
+.vg-page {
+  background: #1a1a2e;
+  min-height: 100vh;
+
+  &__hero {
+    background: linear-gradient(-45deg, #0a0a1a, #021430, #0c70f2);
+    background-size: 300% 300%;
+    animation: vgShift 8s ease infinite;
+    padding: 60px 80px;
+    text-align: center;
+    color: #fff;
+
+    @keyframes vgShift {
+      0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+    }
+
+    h1 { font-size: clamp(24px, 4vw, 48px); font-weight: 900; margin: 12px 0 8px; }
+    p  { color: rgba(255,255,255,0.7); }
+    @media (max-width: 480px) { padding: 40px 20px; }
+  }
+
+  &__tag {
+    background: rgba(12,112,242,0.3);
+    border: 1px solid #0c70f2;
+    color: #00ffea;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+
+  &__section {
+    padding: 40px 80px;
+    @media (max-width: 768px) { padding: 28px 24px; }
+    @media (max-width: 480px) { padding: 20px 16px; }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 560px) { grid-template-columns: 1fr; }
+  }
+
+  &__compare {
+    padding: 40px 80px;
+    h2 { color: #fff; font-size: 22px; margin-bottom: 24px; }
+    @media (max-width: 768px) { padding: 28px 24px; }
+    @media (max-width: 480px) { padding: 20px 16px; }
+  }
+
+  &__table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(12,112,242,0.3);
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    th {
+      background: rgba(12,112,242,0.2);
+      color: #0c70f2;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    td { color: #e0e0e0; }
+
+    tr:hover td { background: rgba(12,112,242,0.08); }
+    tr:last-child td { border-bottom: none; }
+  }
+}
