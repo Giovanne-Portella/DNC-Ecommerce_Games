@@ -1,6 +1,6 @@
-﻿# 🎮 DNC E-Commerce Games
+﻿# 🎮 GameVault — DNC E-Commerce Games
 
-Loja virtual de consoles e jogos eletrônicos desenvolvida com React + Vite. Projeto criado durante o curso da [Escola DNC](https://www.escoladnc.com.br/).
+Loja virtual gamer de consoles, jogos e acessórios desenvolvida com React + Vite. Projeto iniciado durante o curso da [Escola DNC](https://www.escoladnc.com.br/) e evoluído com funcionalidades completas de e-commerce.
 
 ---
 
@@ -19,17 +19,32 @@ Loja virtual de consoles e jogos eletrônicos desenvolvida com React + Vite. Pro
 
 ## Sobre o Projeto
 
-O **DNC E-Commerce Games** é uma aplicação de e-commerce voltada para a venda de consoles e jogos. O projeto simula um fluxo completo de compra: login, listagem de produtos, detalhes do produto, carrinho e pagamento.
+O **GameVault** é uma aplicação de e-commerce temática gamer com design dark/neon. Simula um fluxo completo de compra — login, listagem de produtos, detalhe, carrinho global com drawer lateral e checkout com formulário validado.
+
+O foco foi criar uma experiência viva e dinâmica: animações CSS contínuas, navegação por categorias com conteúdo próprio, busca funcional e carrinho persistente durante toda a sessão.
 
 ---
 
 ## Funcionalidades
 
-- 🔐 **Login** com validação de CPF (formato `000.000.000-00`) e senha
-- 🏠 **Home** com listagem de todos os produtos disponíveis
-- 🕹️ **Detalhe do Produto** com descrição, preço e opção de compra
-- 🛒 **Carrinho** de compras
-- 💳 **Pagamento** (página de checkout)
+- 🔐 **Login** com validação de CPF (`000.000.000-00`) e senha via React Hook Form
+- 🏠 **Home** com banner animado (gradiente em movimento) e listagem de produtos
+- 🔍 **Busca funcional** — filtro em tempo real via `?q=` na URL
+- 🛒 **Carrinho global** — drawer lateral com controle de quantidade, total calculado e "Continuar Comprando"
+- 💳 **Checkout** — formulário de pagamento com validação
+- 🕹️ **Detalhe do Produto** — descrição, cores e botão "Adicionar ao Carrinho"
+- 📱 **Totalmente responsivo** — breakpoints em 900px / 768px / 560px / 480px
+
+### Páginas de conteúdo gamer
+
+| Página | Rota | Conteúdo |
+|---|---|---|
+| Novidades | `/novidades` | Produtos marcados como novidade + seção Game Pass |
+| Jogos | `/jogos` | Jogos filtrados por tipo, ranking Top 5 |
+| Video Games | `/videogames` | Consoles com tabela comparativa de especificações |
+| Mesas Gamer | `/mesas-gamer` | Setups, cadeiras e dicas de montagem |
+| Promoções | `/promocoes` | Produtos com desconto, preço original riscado, newsletter |
+| Atendimento | `/atendimento` | FAQ accordion, canais de suporte (Chat, E-mail, WhatsApp) |
 
 ---
 
@@ -39,9 +54,9 @@ O **DNC E-Commerce Games** é uma aplicação de e-commerce voltada para a venda
 |---|---|---|
 | [React](https://react.dev/) | ^18.2.0 | Biblioteca para construção de interfaces |
 | [Vite](https://vitejs.dev/) | ^4.3.3 | Bundler e servidor de desenvolvimento |
-| [React Router DOM](https://reactrouter.com/) | ^6.10.0 | Roteamento de páginas SPA |
-| [React Hook Form](https://react-hook-form.com/) | ^7.43.9 | Gerenciamento de formulários |
-| [Sass](https://sass-lang.com/) | ^1.62.1 | Pré-processador CSS |
+| [React Router DOM](https://reactrouter.com/) | ^6.10.0 | Roteamento SPA com `createBrowserRouter` e layout raiz |
+| [React Hook Form](https://react-hook-form.com/) | ^7.43.9 | Validação de formulários de login e checkout |
+| [Sass](https://sass-lang.com/) | ^1.62.1 | SCSS com metodologia BEM |
 
 ---
 
@@ -49,32 +64,55 @@ O **DNC E-Commerce Games** é uma aplicação de e-commerce voltada para a venda
 
 ```
 src/
-├── assets/               # Imagens e ícones SVG
+├── assets/                  # Ícones e logos SVG
 ├── components/
-│   ├── DetalhedoProduto/ # Componente de detalhes do produto
-│   ├── Footer/           # Rodapé da aplicação
-│   ├── Nav/              # Barra de navegação
-│   └── ProdutoCard/      # Card de produto na listagem
+│   ├── CartDrawer/          # Carrinho lateral (drawer) global
+│   ├── DetalhedoProduto/    # Detalhe do produto com addToCart
+│   ├── Footer/              # Rodapé
+│   ├── HeroBanner/          # Banner animado com gradiente em movimento
+│   ├── Nav/                 # Navegação com busca e badge do carrinho
+│   ├── PayModal/            # Modal de checkout com validação
+│   └── ProdutoCard/         # Card de produto na listagem
+├── context/
+│   └── CartContext.jsx      # Estado global do carrinho (Context API)
 ├── mock/
-│   └── produtos.mock.js  # Dados simulados dos produtos
+│   └── produtos.mock.js     # 8 produtos com tipo, preço, desconto e novidade
 ├── pages/
-│   ├── Carrinho/         # Página do carrinho
-│   ├── Home/             # Página inicial com listagem
-│   ├── Login/            # Página de login
-│   ├── Pay/              # Página de pagamento
-│   └── Produto/          # Página de detalhe do produto
+│   ├── Atendimento/         # FAQ + canais de suporte
+│   ├── Carrinho/            # Página de carrinho (legada)
+│   ├── Home/                # Listagem com filtro de busca
+│   ├── Jogos/               # Jogos com ranking
+│   ├── Login/               # Autenticação
+│   ├── MesasGamer/          # Setups e periféricos
+│   ├── Novidades/           # Lançamentos
+│   ├── Pay/                 # Checkout (legado)
+│   ├── Produto/             # Detalhe do produto
+│   ├── Promocoes/           # Ofertas com desconto
+│   └── VideoGames/          # Consoles com specs
 ├── sass/
-│   └── _variable.scss    # Variáveis globais SCSS
-├── index.scss            # Estilos globais
-└── main.jsx              # Entrada da aplicação e configuração de rotas
+│   └── _variable.scss       # Variáveis globais SCSS
+├── index.scss               # Estilos globais
+└── main.jsx                 # Rotas e providers raiz
+```
+
+```
+public/
+├── BOY.svg          # God of War
+├── nitendo.svg      # Nintendo Switch
+├── turismo.svg      # Gran Turismo
+├── uncharted.svg    # Uncharted Collection
+├── xboxS.svg        # Xbox Series S
+├── xboxX.svg        # Xbox Series X
+├── hyperx-headset.svg  # HyperX Cloud III
+└── dualsense.svg       # DualSense PS5
 ```
 
 ---
 
 ## Pré-requisitos
 
-- [Node.js](https://nodejs.org/) v16 ou superior
-- npm ou yarn
+- [Node.js](https://nodejs.org/) v18 ou superior
+- npm
 
 ---
 
@@ -85,7 +123,7 @@ src/
 git clone https://github.com/Giovanne-Portella/DNC-Ecommerce_Games.git
 
 # Acesse a pasta do projeto
-cd DNC-Ecommerce_Games
+cd DNC-Ecommerce_Games-1
 
 # Instale as dependências
 npm install
@@ -101,9 +139,8 @@ A aplicação estará disponível em `http://localhost:5173`.
 | Comando | Descrição |
 |---|---|
 | `npm run dev` | Inicia o servidor de desenvolvimento |
-| `npm run build` | Gera o build de produção |
+| `npm run build` | Gera o build de produção em `/dist` |
 | `npm run preview` | Visualiza o build de produção localmente |
-| `npm run lint` | Analisa o código com ESLint |
 
 ---
 
@@ -112,23 +149,50 @@ A aplicação estará disponível em `http://localhost:5173`.
 | Rota | Página | Descrição |
 |---|---|---|
 | `/` | Login | Tela de autenticação |
-| `/home` | Home | Listagem de produtos |
-| `/produto/:produtoId` | Produto | Detalhe de um produto |
-| `/carrinho/:carrinhoId` | Carrinho | Carrinho de compras |
-| `/pay/:payId` | Pay | Finalização da compra |
+| `/home` | Home | Listagem de produtos (aceita `?q=termo`) |
+| `/produto/:produtoId` | Produto | Detalhe e adição ao carrinho |
+| `/novidades` | Novidades | Lançamentos e destaques |
+| `/jogos` | Jogos | Catálogo de jogos com ranking |
+| `/videogames` | Video Games | Consoles com comparativo de specs |
+| `/mesas-gamer` | Mesas Gamer | Setups, cadeiras e periféricos |
+| `/promocoes` | Promoções | Produtos em oferta com desconto |
+| `/atendimento` | Atendimento | FAQ e canais de suporte |
+| `/carrinho/:id` | Carrinho | Página de carrinho (legada) |
+| `/pay/:id` | Pay | Checkout (legado) |
 
 ---
 
 ## Produtos Disponíveis
 
-Os dados dos produtos são gerenciados via mock local em `src/mock/produtos.mock.js` e incluem:
+Gerenciados via mock em `src/mock/produtos.mock.js`. Cada produto possui `tipo`, `precoNum`, `novidade` e `desconto`:
 
-- 🖤 Microsoft Xbox Series X
-- ⬜ Microsoft Xbox Series S
-- 🎮 Nintendo Switch com Jogo
-- 🪓 God of War — PlayStation
-- 🏺 Uncharted: The Nathan Drake Collection
-- 🏎️ Gran Turismo
+| # | Produto | Tipo | Desconto |
+|---|---|---|---|
+| 1 | Microsoft Xbox Series X | console | — |
+| 2 | Microsoft Xbox Series S | console | — |
+| 3 | Nintendo Switch com Jogo | console | 10% |
+| 4 | Jogo God of War — PlayStation | jogo | — |
+| 5 | Jogo Uncharted: The Nathan Drake Collection | jogo | 15% |
+| 6 | Jogo Gran Turismo | jogo | 20% |
+| 7 | Headset Gamer HyperX Cloud III | acessorio | — |
+| 8 | Controle DualSense — PlayStation 5 | acessorio | 5% |
+
+---
+
+## Deploy
+
+Configurado para Netlify via `netlify.toml`:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
 
 ---
 
